@@ -1,0 +1,33 @@
+#rock paper scissors
+a = ["✊","🖐","✌️"]
+x = input("what do you choose? type 0 for rock, 1 for paper, or 2 for scissors. ")
+if x == "0":
+    print(a[0])
+elif x == "1":
+    print(a[1])
+elif x == "2":
+    print(a[2])
+else:
+    print("wrong number.")
+
+print("computer choice:")
+import random
+computer = random.randint(0,2)
+if int(x) >=0 and int(x)<=2:
+    print(a[computer])
+    if int(x) < computer:
+        if int(x)==0 and computer==2:
+            print("you win.")
+        print("you lose.")
+    elif int(x) == computer:
+        print("it is a draw.")
+    else:
+        if int(x)==2 and computer==0:
+            print("you lose")
+        print("you win.")
+
+else:
+    print("玩不起，小垃圾")
+
+print("end game.")
+
