@@ -1,0 +1,31 @@
+words =["pikachu","psyduck","snor",“bulbasaur”, ”charmander”, “squirtle”, “butterfree”, “raichu”, “jigglypuff”]    
+import random
+word = random.choice(words)
+print(word)
+hangman = ["💀","😱","😨","😭","😢","🥺"]
+
+empty_list = []
+
+for i in range(len(word)):
+    empty_list += "_"
+
+end_of_game = False
+lives = 6
+while not end_of_game:    
+    x = input("guess a letter: ")
+    if x in empty_list:
+        print(f"letter {x} was guessed. try another.")
+    else:
+        for i in range(len(word)):
+            y = word[i]
+            if y == x:
+                empty_list[i]=x
+        print(empty_list)
+
+    if x not in word:
+        lives -=1
+        print(hangman[lives])
+        print(f"letter {x} is not in the word. guess again.")
+        if lives == 0:
+            end_of_game = True
+            print("you lose.")
