@@ -1,0 +1,45 @@
+# treasure finder
+print('''
+
+                            .-==========
+                         .-' O    =====
+                        /___       ===
+                           \_      |
+_____________________________)    (_____________________________
+\___________               .'      `,              ____________/
+  \__________`.     |||<   `.      .'   >|||     .'__________/
+     \_________`._  |||  <   `-..-'   >  |||  _.'_________/
+        \_________`-..|_  _ <      > _  _|..-'_________/
+           \_________   |_|  //  \\  |_|   _________/
+                      .-\   //    \\   /-.
+      ,  .         _.'.- `._        _.' -.`._         .  ,
+    <<<<>>>>     .' .'  /  '``----''`  \  `. `.     <<<<>>>>
+      '/\`         /  .' .'.'/|..|\`.`. `.  \         '/\`
+      (())        `  /  / .'| |||| |`. \  \  '        (())
+       /\          ::_.' .' /| || |\ `. `._::          /\
+      //\\           '``.' | | || | | `.''`           //\\
+      //\\             .` .` | || | '. '.             //\\
+      //\\                `  | `' |  '                //\\
+      \\//                                            \\//
+       \/                      MJP                     \/             
+''')
+print("welcome to phenix treasure game.\n"+"your mission is to find the treasure")
+ans1 = input("which way do you want to choose? left or right? ").lower()
+
+
+if ans1 == "left":
+    ans2 = input("do you want to swim across the river in front, or wait for a boat? swim or wait? ").lower()
+    if ans2 == "wait":
+        ans3 = input("which door do you want to choose? red, blue or yellow? ").lower()
+        if  ans3 == "yellow":
+            print("congrats! you get the treasure!")
+        elif ans3 == "blue":
+            print("you lose. the room is full of trouts.")
+        else:
+            print("you lose. the room is going to explode in 3 seconds.\n 3, 2, 1. bang!")
+    else:
+        print("bye, kid. the giant alligator is waiting for you.")
+else:
+    print("your game is over since you fall into abyss. poor kid.")
+    
+    
