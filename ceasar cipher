@@ -12,6 +12,10 @@ def ceasar(text, shift, direction):
     for thing in text:
         if thing in alphabet:
             new_location = alphabet.index(thing)+shift
+            if new_location > 25:
+                new_location = new_location -26
+            elif new_location < 0:
+                new_location =new_location + 26
             new_message = new_message + alphabet[new_location]
         elif thing not in alphabet:
             new_message = new_message + thing
@@ -27,6 +31,4 @@ while yes_continue:
     cycle = input("type 'yes' if you want to go again.\n").lower()
     if cycle != "yes":
         yes_continue = False
-
-
 
