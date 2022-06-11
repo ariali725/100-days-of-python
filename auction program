@@ -1,0 +1,23 @@
+def find_highest(bidding_record):
+    highest = 0
+    winner = ""
+    for bidder in bidding_record:
+        if int(bidding_record[bidder]) > int(highest):
+            highest = bidding_record[bidder]
+            winner = bidder
+    print(f"the winner is {bidder} with a bid of {highest}, the highest bid")
+        
+
+
+bids = {}
+keep_on = True
+while keep_on:
+    name = input("what is your name? \n ")
+    price = input("what is your bid? \n $")
+    bids[name] = price
+    go_on = input("are there any other bidders? \n")
+    if go_on == "no":
+        keep_on = False
+        find_highest(bidding_record = bids)
+
+        
