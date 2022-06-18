@@ -1,0 +1,64 @@
+
+
+import random
+
+u_cards = []
+d_cards = []
+def deal_card():
+    card_pool = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+    card = random.choice(card_pool)
+    return card
+def score(cards):
+    if 11 in cards and sum(cards) > 21:
+        cards.remove(11)
+        cards.append(1)
+        return sum(cards)
+    return sum(cards)
+
+def compare(x, y):
+    if x<21 and y<21:
+        if x>y:
+            return "you win😄"
+        elif x<y:
+            return "you lose😭"
+        elif x==y:
+            return "a draw😮‍"
+    elif x>21 and y<=21:
+        return "you lose😭"
+    elif x<21 and y>=21:
+        return "you win😄"
+    elif x>=21 and y>=21 and x==y:
+        return "a draw😮‍"
+
+def play():
+    print("Welcome to Blackjack Capstone Game!")
+    print("♠️♥️♣️♦️")
+    for _ in range(2):
+        u_cards.append(deal_card())
+        d_cards.append(deal_card())
+    go_on = True
+    while go_on:
+        print(f"your first cards: {u_cards}. your current score is {score(u_cards)}")
+        print(f"dealer's first card: [{d_cards[0]}]")
+        if score(u_cards)==21 or score(d_cards)==21 or score(u_cards)>21:
+            go_on = False
+        else:
+            more_card = input("do you want another card? y or n? ")
+            if more_card == "y":
+                 u_cards.append(deal_card())
+            elif more_card == "n":
+                go_on = False
+
+    while score(d_cards)<17:
+        d_cards.append(deal_card())
+        score(d_cards)
+
+    print(f"your final cards: {u_cards}; your final score: {score(u_cards)}")
+    print(f"dealer's final cards: {d_cards}; dealer's final score: {score(d_cards)}")
+    print(compare(score(u_cards),score(d_cards)))
+
+play()
+while input("do you want to play Blackjack Capstone Game? y or n? ") == "y":
+    u_cards.clear()
+    d_cards.clear()
+    play()
