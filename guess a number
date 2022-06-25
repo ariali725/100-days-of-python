@@ -1,0 +1,42 @@
+import random
+
+def difficulty():
+    mode = input("choose a difficulty. type 'easy' or 'hard':")
+    if mode == "easy":
+        return 10
+    elif mode == "hard":
+        return 5
+
+def comparison(x, n):
+    if x == n: 
+        print("you win! you are a mind reader! congrats! 🏆") 
+    elif x>n:
+        print("too high.")
+    elif x<n:
+        print("too low.")
+
+def guess():
+    
+    go_on = True
+    while go_on:
+        global t
+        print(f"you have {t} attempts to guess the number.")
+        x = int(input("guess a number: "))
+        comparison(x, n)
+        if x==n:
+            go_on = False
+        t = t-1
+        if t == 0:
+            go_on = False
+            print("dude, you lose!")
+        elif t!=0:
+            if x!=n:
+                print("guess again")
+            
+
+print("welcome to number guessing game")
+print("I'm thinking of a integer between 1 and 100.")
+n = random.randrange(1, 101)
+print(n)
+t = difficulty()
+guess()
